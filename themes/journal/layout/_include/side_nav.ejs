@@ -1,0 +1,58 @@
+<div ref="sideContainer" class="side-container">
+    <a class="a-block nav-head <%= is_current('/') && 'active' %>" href="<%= config.root %>">
+        <div class="nav-title">
+            <%- theme.sidebar_title ? theme.sidebar_title : config.title %>
+        </div>
+        <div class="nav-subtitle">
+            <%- theme.sidebar_subtitle ? theme.sidebar_subtitle : config.subtitle %>
+        </div>
+    </a>
+
+    <div class="nav-link-list">
+        <% if (theme.archives) { %>
+        <a class="a-block no-tint nav-link-item <%= is_current('archives') && 'active' %>" href="<%= config.root + "archives" %>">
+            <%= __('Archive') %>
+        </a>
+        <% } %>
+
+        <% if(site.pages){ %>
+            <% site.pages.each(function (page){ %>
+                <% if(!page.hide){ %>
+                <a class="a-block nav-link-item <%= is_current(page.path) && 'active' %>" href="<%= config.root + page.path %>">
+                    <%= page.title %>
+                 </a>
+                     <% }});} %>
+
+        <% if (theme.rssswitch) { %>
+        <a class="a-block no-tint nav-link-item" href="<%= config.root + theme.rss %>">
+            <%= __('RSS') %>
+        </a>
+        <% } %>
+    </div>
+
+    <% // Please keep the section below and do not make modifications. //  %>
+    <div class="nav-footer">
+        <li class="soc">
+            <% if(theme.github) {%> 
+                <a href="<%=  "https://github.com/" + theme.github %>" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-github" >&nbsp;</i>
+                </a>
+            <% } %> 
+            <% if(theme.twitter) {%> 
+                <a href="<%=  "https://twitter.com/" + theme.twitter %>" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-twitter" >&nbsp;</i>
+                </a>
+            <% } %> 
+            <% if(theme.rss) {%> 
+                <a href="<%=  config.url + "/" + theme.rss +".xml" %>" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-rss" >&nbsp;</i>
+                </a>
+            <% } %> 
+        </li>
+        Proudly published with Hexo<br>
+        <%# Please keep the section below and do not make modifications. %>
+        Theme <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> by <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a><br>
+        <%# Please keep the section above and do not make modifications. %>
+        &copy; <%= new Date().getFullYear() %> <a href="<%= config.url %>"><%= config.title %></a>
+    </div>
+</div>

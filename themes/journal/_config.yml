@@ -1,0 +1,13 @@
+sidebar_title: "JoelEyes's Tactical<br>Notebook"
+
+sidebar_subtitle: "言语荟萃"
+
+truncate_len: 60
+
+github: LineEric
+twitter: Eric_CartF
+rss: atom
+# Choose the comment service according to your need.
+# Please do not use the two services at the same time.
+livere: # [data-uid] for livere.com
+disqus: oulaoulastudio
